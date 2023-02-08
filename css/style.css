@@ -1,0 +1,65 @@
+#calendar {
+  width: 300px;
+  border: 2px solid black;
+  padding-left: 2px;
+  padding-right: 2px;
+  position: relative;
+}
+#calendar .info {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#calendar .dates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#calendar .date {
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+  width: 17px;
+  height: 20px;
+  margin-bottom: 2px;
+}
+#calendar .week {
+  margin-top: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+#calendar .week div {
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+  width: 17px;
+  margin-bottom: 2px;
+}
+#calendar .nav {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#calendar .nav a {
+  text-decoration: none;
+  margin: 0 15px;
+}
+.window {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  text-align: center;
+}
+.dateInfo {
+  text-align: center;
+}
+.window input {
+  outline: none;
+}
