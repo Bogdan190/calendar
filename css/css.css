@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dates li, .week-days li{
+    list-style: none;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dates{
+    height: 150px;
+    align-content: center;
+}
+.dates, .week-days{
+    display: flex;
+    flex-flow: row wrap;
+    width: 175px;
+}
+.btns{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 175px;
+}
+.btns button{
+    background-color: orange;
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    width: 50px;
+    cursor: pointer;
+}
+.info{
+    width: 175px;
+    text-align: center;
+    font-weight: bold;
+}
+
