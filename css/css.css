@@ -12,6 +12,9 @@
     justify-content: center;
     align-items: center;
 }
+.dates li{
+    cursor: pointer;
+}
 .dates{
     height: 150px;
     align-content: center;
@@ -39,5 +42,71 @@
     width: 175px;
     text-align: center;
     font-weight: bold;
+}
+.window {
+    width: 600px;
+    min-height: 250px;
+    border: 1px solid black;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-300px);
+    background-color: #fff;
+    text-align: center;
+    display: none;
+  }
+  .dateInfo {
+    text-align: center;
+  }
+  .window .add-form input {
+    outline: none;
+    width: 150px;
+  }
+  .calendar{
+    text-align: center;
+    margin: 0 auto;
+    width: 175px;
+    margin-top: 50px;
+  }
+
+  .add-form button, .item button, .status-bar button {
+    min-width: 30px;
+    height: 30px;
+    background-color: cornsilk;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    padding: 3px 6px;
+}
+#edit-mode-box:checked + form>.add-btn {
+    display: none;  
+}
+#edit-mode-box:not(:checked) + form>.save-btn {
+    display: none;
+}
+
+.list {
+    list-style: none;
+    max-width: 500px;
+    margin: auto;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
+input:checked + span {
+    text-decoration: line-through;
+}
+.item span {
+    margin-right: auto;
+    margin-left: 20px;
+}
+.status-bar {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
 }
 

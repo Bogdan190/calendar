@@ -11,6 +11,7 @@
 <body>
     <div class="calendar">
         <div class="info">февраль 2023</div>
+        <div class="list1"></div>
         <ul class="week-days">
             <li style="color: red">ВС</li>
             <li>ПН</li>
@@ -20,10 +21,31 @@
             <li>ПТ</li>
             <li style="color: red">СБ</li>
         </ul>
-        <div class="dates"></div>
+        <ul class="dates"></ul>
         <div class="btns">
             <button class="prev">Prev</button>
             <button class="next">Next</button>
+        </div>
+        <div class="window">
+            <div class="dateInfo"> 16 Январь 2018</div>
+            <input type="checkbox" id="edit-mode-box" hidden>
+            <form class="add-form" action="javascript:">
+                <input type="text" placeholder="введите заметку">
+                <button class="add-btn">➕</button>
+                <button class="save-btn">💾</button>
+            </form>            
+            <ul class="list"></ul>
+            <footer class="status-bar">
+                <div class="counter">
+                    <span id="done-count">0</span>
+                    of
+                    <span id="task-count">2</span>
+                    tasks done
+                </div>
+                <button class="remove-btn">
+                    Remove checked &times;
+                </button>
+            </footer>
         </div>
     </div>
 
