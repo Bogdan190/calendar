@@ -12,6 +12,7 @@ const editMode = document.querySelector('#edit-mode-box')
 const statusBar = document.querySelector('.status-bar')
 const [doneCount, taskCount] = document.querySelectorAll('.counter span')
 const removeBtn = document.querySelector('.remove-btn')
+const closeBtn = document.querySelector('.close')
 let lastId = 0
 let editId
 
@@ -28,8 +29,10 @@ nextBtn.onclick = showNextMonth
 addBtn.onclick = handleAdd
 saveBtn.onclick = handleSave
 removeBtn.onclick = handleRemoveDone
+closeBtn.onclick = handleClose
 
 let dates = []
+let activeDate
 
 fillDates()
 renderCalendar()
@@ -38,6 +41,8 @@ calendarContainer.onclick = handleCalendarClick
 datesContainer.onclick = (e) => {
     if (e.target.className == "date") {
         taskForm.style.display = "block"
+        activeDate = e.target.dataset.date
+        dateInfo.innerHTML = activeDate
     }
 }
 
@@ -58,7 +63,7 @@ list.onclick = (e) => {
     }
 }
 
-dateInfo.innerHTML = months[currentMonth.month] + " " + currentMonth.year
+
 
 function renderCalendar() {
     const dateItems = dates.map(makeDateItem)
@@ -90,7 +95,7 @@ function makeDateItem({ year, month, date, current }) {
 
     dateItem.innerText = date
 
-    dateItem.dataset.date = new Date(year, month, date).toISOString().slice(0, 10)
+    dateItem.dataset.date = new Date(Date.UTC(year, month, date)).toISOString().slice(0, 10)
 
     return dateItem
 }
@@ -128,8 +133,8 @@ function getMonthDates(year, month) {
 
     return dates.map((date) => ({ year, month, date }))
 }
-
-
+//-1
+//year, month
 
 function range(from, to) {
     return [...Array(to - from + 1).keys()].map(num => num + from);
@@ -157,10 +162,6 @@ function showNextMonth() {
     renderCalendar()
 }
 
-
-
-
-
 function handleEdit(li) {
     editMode.checked = true
     input.value = li.querySelector('span').innerText
@@ -175,17 +176,14 @@ function handleSave() {
 }
 
 function createTask(text){
-    return {id: generateId(), text, done: false}
+    return {id: generateId(), text, done: false, date: activeDate}
 }
-
-
-
 
 function generateId(){
     return ++lastId
 }
 
-function handleAdd(){
+function handleAdd(data){
     let text = input.value
     let task = createTask(text)
     tasks.push(task)
@@ -224,7 +222,6 @@ function updateCount() {
     doneCount.innerText = list.querySelectorAll(":checked").length
 }
 
-
 function handleRemoveDone() {
     const doneTasks = tasks.filter((task => task.done))
     console.log(tasks)
@@ -243,4 +240,8 @@ function handleCheck(li) {
     const checked = Boolean(li.querySelector(":checked"))
     task.done = checked
 
+}
+
+function handleClose(){
+    taskForm.style.display = "none"
 }

@@ -55,6 +55,16 @@
     text-align: center;
     display: none;
   }
+  .close{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    padding: 10px 19px;
+    cursor: pointer;
+  }
   .dateInfo {
     text-align: center;
   }
@@ -72,8 +82,7 @@
   .add-form button, .item button, .status-bar button {
     min-width: 30px;
     height: 30px;
-    background-color: cornsilk;
-    border: none;
+    background-color: cornsilk;  
     margin: 5px;
     cursor: pointer;
     padding: 3px 6px;
